@@ -1,0 +1,101 @@
+Notes for Chapter 1 of NNDL
+
+- human visual cortex - V1
+  - 140 million neurons
+  - tens of billions of synapses
+  - other cortexes (V2, V3, V4, V5)
+- how do you describe a 9? the letter 'A'?
+- very difficult to do algorithmically
+- neural networks infer rules from training data
+
+- this book teaches neural networks through the prototype of
+  handwriting recognition
+- other problems discussed: computer vision, speech, NLP
+- neural network ideas: perceptron, sigmoid neuron, stochastic
+  gradient descent
+- goals by end of chapter
+  - what is deep learning
+  - why does it matter
+
+- perceptron: takes in several binary inputs and produces a
+  binary output
+- output of the neuron (perceptron) is decided by whether
+  the weighted average is above some threshold value, where
+  each input has a weight associated with it
+- each layer of perceptrons adds a layer of abstraction to
+  the network
+- notational changes from weighted sum to dot product of
+  weights and perceptrons plus bias (-threshold)
+  - sum(j) w_j*x_j > t
+  - w * x + b > 0
+- bias: how easy it is to get the perceptron to fire
+- perceptrons can be used for weighing evidence to make
+  decisions or to compute elementary logic functions
+  (example of NAND gate)
+- can do any computation with perceptrons (the NAND gate
+  is universal for computation, as NAND is one of two
+  functionally complete Singleton sets)
+- can draw out perceptrons for a NAND gate for practice
+  and understanding, similar to normal NAND gate with a
+  carry bit
+- "input perceptrons" are not really neurons, just
+  notation for the input nodes
+- perceptrons are universal for computation
+  - as stated above
+- weights and biases allow us to devise learning
+  algorithms
+
+- how do we devise learning algorithms?
+  - we want network to "learn"
+  - small change in weight -> small change in output
+  - continually tweak the network until it produces
+    the desired outputs from given inputs
+- when network is perceptrons, small changes in
+  a weight or bias lead to a binary flip and a
+  possibly large change in output
+- overcome problem of perceptron learning by using
+  a network of sigmoid neurons
+- sigmoid neuron: inputs can take any value from 0
+  to 1, output includes a sigmoid function defined
+    sigma(z) = (1 + e^-z)^-1
+  and the sigmoid function is used to calculate
+  the output as
+    output = sigma(w * x + b)
+- sigmoid function: also known as the logistic
+  function (and sigmoid neurons are also known
+  as logistic neurons)
+
+pat plays around with sigmoid neurons
+- for sigmoid = 0, w*x+b -> -inf
+- for sigmoid = 1, w*x+b -> +inf
+- when w*x+b=0, sigmoid = 0.5
+- we are weighting an exponential with an s-shaped
+  curve (according to Desmos), which represents
+  the curve for logistic growth, hence the names
+  used earlier
+- why use a logistic growth function?
+
+back to MN
+- similar explanations to what I just worked out
+- when w * x + b ~ 0, there is the most deviation
+  from the perceptron model
+- sigmoid is a smoothed-out version of the step
+  function, which is the function used for
+  perceptrons
+- by using the sigmoid (logistic) function, we get
+  a smoothed-out perceptron
+- the smoothness produces the effect that we desire
+  - small changes in w or b now produce small
+    changes in our output
+- shows approximation of delta of output
+- linear function with regards to small changes in
+  w and b
+
+- sigmoid function is the activation function that
+  we use in this textbook because it is simple to
+  compute partial derivatives of an exponential
+  - note that we can (and often do) use other
+    activation functions
+- sigmoid neurons can have any real number as their
+  output
+  
