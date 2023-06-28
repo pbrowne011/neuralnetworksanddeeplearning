@@ -98,4 +98,78 @@ back to MN
     activation functions
 - sigmoid neurons can have any real number as their
   output
-  
+
+- parts of a neural network: input layer (neurons),
+  output layer (neurons), hidden layer(s)
+  - hidden: not an input nor an output
+- multiple layer networks: multilayer perceptrons
+  (MLPs), depsite using logistic neurons
+- i/o layers straightforward
+  - input: pixels of handwritten image
+  - output: digit between 0-9 inclusive
+- hidden layers complex and artful
+- researchers have developed design heuristics
+- feedforward neural networks: output from one
+  layer is used as input to next layer, no loops
+  in the network
+- recurrent neural networks: cascade of neurons
+  firing over time, not a problem as affects input
+  at time t+1, not instantly
+- quiescent: in a state or period of inactivity
+  or dormancy
+- this book focuses on feedforward networks
+  - RNNs have (as of 2019) less powerful learning
+    algorithms
+  - RNNs still interesting, more similar to our
+    brain, possibly powerful
+  - not sure yet if convoluted neural networks
+    (CNNs) are relevant here (or what CNNs are
+    for that matter)
+
+- split handwriting recognition problem
+  - segmentation problem: break images
+    containing many digits into separate images
+    with single digits
+  - classification problem: classify individual
+    digits
+- we will focus on classification, since
+  (according to the author) the segmentation
+  problem becomes easier after solving the second
+  problem first
+- solving segmentation
+  - trial different ways of segmenting image,
+    using classifier for segmenting
+  - higher score as classifier is more confident
+- solving classification: our problem
+- we will use three layer neural network
+  - input: 784 neurons (28x28 pixels)
+  - hidden: n = 15
+  - output: 10 neurons (0-9)
+  - input pixels are greyscale; nodes have value
+    from 0 (white) to 1 (black)
+- why not just encode neurons as bits? could
+  represent using 4 neurons instead (and up to
+  16 values!)
+  - experimentation will show that 10 is better
+    than 4 for this case
+  - from first principles, the neural network
+    is trying to recognize 10 different digits,
+    not something that might have a tree
+    structure
+  - structure of digits does not lend itself to
+    finding the most significant bit of a number
+- note: the above two bullets are heuristics,
+  who knows how the neural network will actually
+  operate? definitely not us lol
+
+- MNIST: modified (dataset from) National
+  Institute of Standards and Technology
+- training set: 60k images from 250 people
+- test set: 10k images from 250 different people
+- x: input, n=784
+- y, y(x): output, n=10
+- we want an algorithm for correct weights and
+  biases to most accurately approximate y(x)
+- cost function: puts into numbers how well we are
+  achieving our goal, also known as a loss
+  function or objective function
